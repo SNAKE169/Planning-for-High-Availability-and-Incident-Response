@@ -23,6 +23,15 @@ us-east-2 ("us-east-2a","us-east-2b","us-east-2c") and us-west-1 ("us-west-1c","
 
 ### Descriptions
 More detailed descriptions of each asset identified above.
+VPC stands for Virtual Private Cloud - secure isolated private cloud within a public AWS region.
+Internet Gateway enables communication between VPC and the Internet.
+Private Subnet is logical subnet - can't access directly to/from Internet.
+Public Subnet is logical subnet - can access to/from Internet via Internet Gateway.
+NAT Gateway is Network Address Translation service.
+Elastic IP address (static IPv4 address) represents public address of NAT Gateway.
+Application Load Balancer distributes requests evenly across EC2 instances.
+EC2 is a VM to host application. 
+RDS Cluster is database service.
 EKS Cluster support Prometheus monitoring and Grafana visualization.
 ## DR Plan
 ### Pre-Steps:
