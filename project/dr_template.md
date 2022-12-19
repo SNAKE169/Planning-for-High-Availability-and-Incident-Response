@@ -10,11 +10,16 @@ us-east-2 ("us-east-2a","us-east-2b","us-east-2c") and us-west-1 ("us-west-1c","
 |------------|-------------------|------------------------------------------------------------------------|-----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | Asset name | Brief description | AWS size eg. t3.micro (if applicable, not all assets will have a size) | Number of nodes/replicas or just how many of a particular asset | Identify if this asset is deployed to DR, replicated, created in multiple locations or just stored elsewhere |
 
-| VM | running application | t3.medium | 3 instances | is deployed to DR |
- |EKS | monitoring stack | t3.medium | 2 nodes (EKS) | is deployed to DR |
-| VPC | virtual private cloud |  | | has IPs in multiple availability zones|
-| ALB | application load balancer |  | #number of region | created in each region |
-|SQL cluster | storing data |  | 2 clusters, 2 instances/ each cluster| is created in multiple locations |
+| VPC | Virtual Private Cloud |  | 2 in total, 1 per region | created in multiple locations |
+| Internet Gateway | public subnets | | 2 in total, 1 per region | created in multiple locations |
+| Private Subnet | not accessible directly from internet |  | 1 per availability zone in each region | created in multiple locations |
+| Public Subnet | accessible directly from internet |  | 1 per availability zone in each region | created in multiple locations |
+| NAT Gateway | Network Address Translation |  | 1 per availability zone in each region | created in multiple locations |
+| EIP | Elastic IP Address |  | 1 per availability zone in each region | created in multiple locations |
+| ALB | 	Application Load Balancer |  | 1 per region | created in multiple locations |
+| EC2 | Web server | t3.micro | 3 per region | created in multiple locations |
+| EKS | Monitoring | t3.medium | 1 cluster (2 nodes minimum) per region | created in multiple locations |
+| RDS | database | db.t2.small	 | 1 cluster (3 instances) per region | Clusters replicated between zones 1 and 2 |
 
 ### Descriptions
 More detailed descriptions of each asset identified above.
